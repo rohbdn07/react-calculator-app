@@ -28,7 +28,7 @@ function App() {
   }
   return (
     <div className='App'>
-      <h1>Calculator</h1>
+      <h2>Calculator</h2>
       <hr />
       <form>
         <input type='text' value={result} ref={inputRef} />
@@ -38,7 +38,7 @@ function App() {
         <button id='clear' onClick={clear}>
           Clear
         </button>
-        <button id='c' onClick={backSpace}>
+        <button id='backspace' onClick={backSpace}>
           C
         </button>
         <button onClick={handleClick} name='+'>
