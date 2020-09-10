@@ -14,16 +14,30 @@ function App() {
   function backSpace() {
     setResult(`${result}`.slice(0, result.length - 1));
   }
+
+  function clear() {
+    setResult("");
+  }
+
+  function calculate() {
+    try {
+      setResult(eval(result).toString());
+    } catch (err) {
+      setResult("error");
+    }
+  }
   return (
     <div className='App'>
       <h1>Calculator</h1>
       <hr />
-      <form action='text'>
+      <form>
         <input type='text' value={result} ref={inputRef} />
       </form>
 
       <div className='container'>
-        <button id='clear'>Clear</button>
+        <button id='clear' onClick={clear}>
+          Clear
+        </button>
         <button id='c' onClick={backSpace}>
           C
         </button>
@@ -51,7 +65,7 @@ function App() {
         <button onClick={handleClick} name='6'>
           6
         </button>
-        <button onClick={handleClick} name='X'>
+        <button onClick={handleClick} name='*'>
           X
         </button>
         <button onClick={handleClick} name='1'>
@@ -73,7 +87,9 @@ function App() {
           .
         </button>
 
-        <button id='result'>Total</button>
+        <button id='result' onClick={calculate}>
+          Total
+        </button>
       </div>
     </div>
   );
