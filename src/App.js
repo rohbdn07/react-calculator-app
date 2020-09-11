@@ -23,7 +23,7 @@ function App() {
     try {
       setResult(eval(result).toString());
     } catch (err) {
-      setResult("error");
+      setResult(err);
     }
   }
   return (
